@@ -1,7 +1,13 @@
 package com.Loja.xBrain.model;
 
-import java.time.LocalDate;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
+import java.time.LocalDate;
+@Entity
+@Id
+@GeneratedValue
 public class VendaModel {
     private Long id;
     private LocalDate dataVenda;
