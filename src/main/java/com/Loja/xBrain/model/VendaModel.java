@@ -6,9 +6,10 @@ import jakarta.persistence.Id;
 
 import java.time.LocalDate;
 @Entity
-@Id
-@GeneratedValue
 public class VendaModel {
+
+    @Id
+    @GeneratedValue
     private Long id;
     private LocalDate dataVenda;
     private double valorVenda;
