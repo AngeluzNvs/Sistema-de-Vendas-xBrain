@@ -3,8 +3,11 @@ package com.Loja.xBrain.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 import java.time.LocalDate;
+import java.util.List;
+
 @Entity
 public class VendaModel {
 
@@ -15,6 +18,10 @@ public class VendaModel {
     private double valorVenda;
     private long idVendedor;
     private String nomeVendedor;
+
+    // muitos pra 1
+    @ManyToOne
+    private VendedorModel vendedor;
 
     public VendaModel() {
     }

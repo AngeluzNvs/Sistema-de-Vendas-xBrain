@@ -12,14 +12,18 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/vendas")
 public class VendaController {
+
     @Autowired
     private VendaService vendaService;
+
     @PostMapping
     public VendaModel criarVenda(@RequestBody VendaModel venda){
         return vendaService.salvarVenda(venda);
     }
+
     @GetMapping("/relatorio")
     public List<Relatorio> obterRelatorio(@RequestParam("/inicio") LocalDate inicio, @RequestParam("fim") LocalDate fim){
         return vendaService.gerarRelatorio(inicio, fim);
     }
+
 }
