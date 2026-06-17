@@ -17,7 +17,7 @@ public class VendaController {
     private VendaService vendaService;
 
     @GetMapping("/relatorio")
-    public List<Relatorio> obterRelatorio(@RequestParam("/inicio") LocalDate inicio, @RequestParam("fim") LocalDate fim){
+    public List<Relatorio> obterRelatorio(@RequestParam("inicio") LocalDate inicio, @RequestParam("fim") LocalDate fim){
         return vendaService.gerarRelatorio(inicio, fim);
     }
 
@@ -32,7 +32,7 @@ public class VendaController {
     }
 
     @DeleteMapping("{id}")
-    public void deletarVenda(@RequestParam Long id){
+    public void deletarVenda(@PathVariable Long id){
         vendaService.deletarVenda(id);
     }
 

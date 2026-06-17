@@ -27,7 +27,7 @@ public class VendaService {
         for (VendaModel venda : todasVendas) {
             LocalDate dataVenda = venda.getDataVenda();
 
-            if (!dataVenda.isBefore(inicio) && dataVenda.isAfter(fim)){
+            if (!dataVenda.isBefore(inicio) && !dataVenda.isAfter(fim)){
                 String nomeVendedor = venda.getNomeVendedor();
                 double valorVenda = venda.getValorVenda();
                 boolean vendedorExiteNaLista= false;
