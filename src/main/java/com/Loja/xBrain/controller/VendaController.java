@@ -1,6 +1,8 @@
 package com.Loja.xBrain.controller;
 
 import com.Loja.xBrain.dto.Relatorio;
+import com.Loja.xBrain.dto.VendaReq;
+import com.Loja.xBrain.dto.VendaRes;
 import com.Loja.xBrain.model.VendaModel;
 import com.Loja.xBrain.service.VendaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +24,13 @@ public class VendaController {
     }
 
     @PostMapping
-    public VendaModel criarVenda(@RequestBody VendaModel venda){
-        return vendaService.salvarVenda(venda);
+    public VendaRes criarVenda(@RequestBody VendaReq vendaReq){
+        return vendaService.salvarVenda(vendaReq);
     }
 
     @PutMapping("{id}")
-    public void editarVenda(@RequestBody VendaModel venda, @PathVariable Long id){
-        vendaService.editarVenda(venda,id);
+    public VendaRes editarVenda(@RequestBody VendaReq vendaReq, @PathVariable Long id){
+        return vendaService.editarVenda(vendaReq, id);
     }
 
     @DeleteMapping("{id}")
