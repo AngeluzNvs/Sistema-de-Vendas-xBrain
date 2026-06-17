@@ -16,14 +16,24 @@ public class VendaController {
     @Autowired
     private VendaService vendaService;
 
+    @GetMapping("/relatorio")
+    public List<Relatorio> obterRelatorio(@RequestParam("/inicio") LocalDate inicio, @RequestParam("fim") LocalDate fim){
+        return vendaService.gerarRelatorio(inicio, fim);
+    }
+
     @PostMapping
     public VendaModel criarVenda(@RequestBody VendaModel venda){
         return vendaService.salvarVenda(venda);
     }
 
-    @GetMapping("/relatorio")
-    public List<Relatorio> obterRelatorio(@RequestParam("/inicio") LocalDate inicio, @RequestParam("fim") LocalDate fim){
-        return vendaService.gerarRelatorio(inicio, fim);
+    @PutMapping("{id}")
+    public void editarVenda(@RequestBody VendaModel venda, @PathVariable Long id){
+        vendaService.editarVenda(venda,id);
+    }
+
+    @DeleteMapping("{id}")
+    public void deletarVenda(@RequestParam Long id){
+        vendaService.deletarVenda(id);
     }
 
 }

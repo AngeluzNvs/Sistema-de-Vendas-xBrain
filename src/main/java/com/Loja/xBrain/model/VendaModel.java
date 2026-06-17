@@ -73,4 +73,12 @@ public class VendaModel {
     public void setNomeVendedor(String nomeVendedor) {
         this.nomeVendedor = nomeVendedor;
     }
+
+    public VendedorModel getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(VendedorModel vendedor) {
+        this.vendedor = vendedor;
+    }
 }
